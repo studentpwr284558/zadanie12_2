@@ -21,7 +21,8 @@ def szyfrowanie(plik):
     assert len(obiekt.nonce) == 15
 
     #zwracanie uzytkownikowi klucza AES do odszyfrowywania wiadomosci (w formacie szesnastkowym)
-    print(f'Klucz do pliku:{klucz.hex()}')
+    with open(f'{plik}_klucz.txt', 'w') as f:
+        f.write(klucz.hex())
 
     #zapisywanie zaszyfrowanej wiadomosci do pliku binarnego
     with open(f'{plik}_zaszyfrowany.bin', 'wb') as f:
